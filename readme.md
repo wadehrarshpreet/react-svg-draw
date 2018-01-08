@@ -24,7 +24,7 @@ React.render(<SVG><Circle cx="40" cy="40" r="24" /></SVG>, document.body)
 
 ## TAGS Available
 
-* <SVG />
+* &lt;SVG /&gt;
 * <SVG.A />
 * <SVG.Animate />
 * <SVG.AnimateMotion />
