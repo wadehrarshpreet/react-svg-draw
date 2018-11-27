@@ -8,26 +8,29 @@ import PropTypes from 'prop-types'
  * @type {ReactClass}
  */
 class Symbol extends React.Component {
-  constructor() {
-    super()
-  }
+    constructor() {
+        super()
+    }
 
-  render() {
-    return (
-      <symbol
-        {...this.props}
-      >
-        {this.props.children}
-      </symbol>
-    )
-  }
+    render() {
+        return (
+            <symbol {...this.props}>
+                {this.props.children}
+            </symbol>
+        )
+    }
 }
 
 Symbol.propTypes = {
-  children: PropTypes.object,
-  className: PropTypes.string,
-  id: PropTypes.string,
-  style: PropTypes.object,
+    children: PropTypes.oneOfType([
+        PropTypes.arrayOf(PropTypes.node),
+        PropTypes.node,
+        PropTypes.object,
+        PropTypes.array
+    ]),
+    className: PropTypes.string,
+    id: PropTypes.string,
+    style: PropTypes.object
 }
 
 export default Symbol

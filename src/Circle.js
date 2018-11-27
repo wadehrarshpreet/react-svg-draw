@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { defaultStyle } from './config'
+import {defaultStyle} from './config'
 
 /**
  * A React component for the circle HTML Tag.
@@ -9,29 +9,31 @@ import { defaultStyle } from './config'
  * @type {ReactClass}
  */
 class Circle extends React.Component {
-  constructor() {
-    super()
-  }
+    constructor() {
+        super()
+    }
 
-  render() {
-    return (
-      <circle
-        style={defaultStyle}
-        {...this.props}
-      >
-        {this.props.children}
-      </circle>
-    )
-  }
+    render() {
+        return (
+            <circle style={defaultStyle} {...this.props}>
+                {this.props.children}
+            </circle>
+        )
+    }
 }
 
 Circle.propTypes = {
-  children: PropTypes.object,
-  className: PropTypes.string,
-  cx: PropTypes.string,
-  cy: PropTypes.string,
-  r: PropTypes.string,
-  style: PropTypes.object,
+    children: PropTypes.oneOfType([
+        PropTypes.arrayOf(PropTypes.node),
+        PropTypes.node,
+        PropTypes.object,
+        PropTypes.array
+    ]),
+    className: PropTypes.string,
+    cx: PropTypes.string,
+    cy: PropTypes.string,
+    r: PropTypes.string,
+    style: PropTypes.object
 }
 
 export default Circle

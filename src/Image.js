@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-
 /**
  * A React component for the SVG HTML Tag.
  *
@@ -9,28 +8,31 @@ import PropTypes from 'prop-types'
  * @type {ReactClass}
  */
 class Image extends React.Component {
-  constructor() {
-    super()
-  }
+    constructor() {
+        super()
+    }
 
-  render() {
-    return (
-      <image
-        {...this.props}
-      >
-        {this.props.children}
-      </image>
-    )
-  }
+    render() {
+        return (
+            <image {...this.props}>
+                {this.props.children}
+            </image>
+        )
+    }
 }
 
 Image.propTypes = {
-  children: PropTypes.object,
-  className: PropTypes.string,
-  style: PropTypes.object,
-  x: PropTypes.string,
-  xlinkHref: PropTypes.string,
-  y: PropTypes.string,
+    children: PropTypes.oneOfType([
+        PropTypes.arrayOf(PropTypes.node),
+        PropTypes.node,
+        PropTypes.object,
+        PropTypes.array
+    ]),
+    className: PropTypes.string,
+    style: PropTypes.object,
+    x: PropTypes.string,
+    xlinkHref: PropTypes.string,
+    y: PropTypes.string
 }
 
 export default Image

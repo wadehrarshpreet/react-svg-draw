@@ -9,27 +9,29 @@ import { defaultStyle } from './config'
  * @type {ReactClass}
  */
 class Polygon extends React.Component {
-  constructor() {
-    super()
-  }
+    constructor() {
+        super()
+    }
 
-  render() {
-    return (
-      <polygon
-        style={defaultStyle}
-        {...this.props}
-      >
-        {this.props.children}
-      </polygon>
-    )
-  }
+    render() {
+        return (
+            <polygon style={defaultStyle} {...this.props}>
+                {this.props.children}
+            </polygon>
+        )
+    }
 }
 
 Polygon.propTypes = {
-  children: PropTypes.object,
-  className: PropTypes.string,
-  points: PropTypes.string,
-  style: PropTypes.object,
+    children: PropTypes.oneOfType([
+        PropTypes.arrayOf(PropTypes.node),
+        PropTypes.node,
+        PropTypes.object,
+        PropTypes.array
+    ]),
+    className: PropTypes.string,
+    points: PropTypes.string,
+    style: PropTypes.object
 }
 
 export default Polygon

@@ -26,7 +26,12 @@ class Ellipse extends React.Component {
 }
 
 Ellipse.propTypes = {
-  children: PropTypes.object,
+  children: PropTypes.oneOfType([
+        PropTypes.arrayOf(PropTypes.node),
+        PropTypes.node,
+        PropTypes.object,
+        PropTypes.array
+    ]),
   className: PropTypes.string,
   cx: PropTypes.string,
   cy: PropTypes.string,
